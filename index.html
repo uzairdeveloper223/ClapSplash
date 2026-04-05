@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClapSplash | Web Audio Clap Detection</title>
+    
+    <meta name="description" content="ClapSplash is an intelligent, privacy-first web application that uses the Web Audio API to detect hand claps in real-time and trigger hilarious sound effects.">
+    <meta name="keywords" content="Clap detection, Web Audio API, soundboard, funny sounds, browser audio, microphone, javascript tool">
+    <meta name="author" content="Uzair Mughal">
+    
+    <meta property="og:title" content="ClapSplash | Web Audio Clap Detection">
+    <meta property="og:description" content="A real-time, browser-native clap detection soundboard. Trigger hilarious custom sounds with just a clap of your hands.">
+    <meta property="og:type" content="website">
+    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Web3Forms hCaptcha Script -->
+    <script src="https://web3forms.com/client/script.js" async defer></script>
+</head>
+
+<body>
+    <main class="container">
+        <header>
+            <div class="header-titles">
+                <h1>ClapSplash</h1>
+                <span class="subtitle">Microphone clap detection utility</span>
+            </div>
+            <a href="https://github.com/uzairdeveloper223/ClapSplash" target="_blank" rel="noopener noreferrer"
+                class="github-link" aria-label="GitHub Profile">
+                <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor">
+                    <path
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                    </path>
+                </svg>
+            </a>
+        </header>
+
+        <section class="status-panel">
+            <div class="status-indicator">
+                <div class="dot" id="mic-status-dot" data-state="inactive" aria-hidden="true"></div>
+                <span id="mic-status-text">Microphone Offline</span>
+            </div>
+            <div class="action-buttons">
+                <button id="toggle-mic-btn" data-primary="true">Start Listening</button>
+                <button id="stop-audio-btn" style="display: none;">Stop Playback</button>
+            </div>
+        </section>
+
+        <section class="control-group">
+            <label for="pack-selector">Sound Pack</label>
+            <select id="pack-selector" class="dropdown">
+                <option value="shuffle">🔥 Shuffle (All Packs Random)</option>
+                <!-- DYNAMIC PACKS -->
+            </select>
+        </section>
+
+        <section class="control-group" id="sound-selector-group">
+            <label for="sound-selector">Specific Sound</label>
+            <select id="sound-selector" class="dropdown">
+                <!-- DYNAMIC SOUNDS -->
+            </select>
+        </section>
+
+        <section class="control-group">
+            <label for="sensitivity-slider">
+                Sensitivity Threshold
+                <span class="value-display" id="sensitivity-value">100</span>
+            </label>
+            <input type="range" id="sensitivity-slider" min="10" max="255" value="100" step="1">
+        </section>
+
+        <section class="control-group">
+            <label for="debounce-slider">
+                Debounce Cooldown (ms)
+                <span class="value-display" id="debounce-value">500</span>
+            </label>
+            <input type="range" id="debounce-slider" min="100" max="2000" value="500" step="50">
+        </section>
+
+        <section class="control-group">
+            <label for="volume-slider">
+                Playback Volume
+                <span class="value-display" id="volume-value">100%</span>
+            </label>
+            <input type="range" id="volume-slider" min="0" max="1" value="1" step="0.01">
+        </section>
+
+        <section class="control-group">
+            <label>Event Log</label>
+            <div class="log-container" id="event-log" aria-live="polite" aria-atomic="false">
+                <div>System initialized.</div>
+            </div>
+        </section>
+
+        <div class="footer-links">
+            <button id="about-btn" class="footer-btn">A note from the developer</button>
+            <button id="suggest-btn" class="footer-btn">Suggest a Sound</button>
+        </div>
+        
+        <audio id="audio-player" src="assets/sounds/anime/anime-ahh.mp3" preload="auto"></audio>
+    </main>
+
+    <dialog id="suggest-modal" class="modal">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2>Suggest a Sound</h2>
+                <button id="close-suggest-btn" aria-label="Close modal">×</button>
+            </header>
+            <div class="modal-body">
+                <p>Got a hilarious sound in mind? Drop the details below and I'll review it for the next pack update!</p>
+                <form id="suggest-form">
+                    <input type="hidden" name="access_key" value="b68ba00a-128a-4a38-a740-2fb64d2002f9">
+                    <input type="hidden" name="subject" value="New ClapSplash Suggestion!">
+                    
+                    <div class="form-group">
+                        <label for="sound-name">Sound Name</label>
+                        <input type="text" id="sound-name" name="Sound Name" required placeholder="e.g. Cartoon Slip">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sound-url">Audio Link (MyInstants, YouTube, etc)</label>
+                        <input type="url" id="sound-url" name="Audio URL" required placeholder="https://...">
+                    </div>
+                    
+                    <div class="h-captcha" data-captcha="true"></div>
+                    
+                    <button type="submit" id="submit-suggest-btn" data-primary="true">Submit Request</button>
+                    <p id="form-result" class="form-result"></p>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog id="about-modal" class="modal">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2>Why Some Sounds Didn't Make It</h2>
+                <button id="close-modal-btn" aria-label="Close modal">×</button>
+            </header>
+            <div class="modal-body">
+                <p>When I started ClapSplash, the idea was simple — clap your hands, get a funny reaction. But as the sound pack grew, I had to make some real decisions about what stays and what goes.</p>
+                <p>Some sounds got rejected not because they aren't funny to some people, but because this is a public website. Anyone can open it. Your little sibling. Someone's kid. Someone going through something difficult. A sound that's hilarious in one context can genuinely make someone uncomfortable in another.</p>
+                <p>Sexual sounds or suggestive audio — even as "jokes" — have no place on a platform where I have zero control over who's listening. It's not about being boring. It's about basic respect for everyone who lands on this page. Hate speech, slurs, and politically charged content are permanently excluded. A clap shouldn't accidentally ruin someone's day.</p>
+                <p>I want ClapSplash to be something I'm genuinely proud to show — to anyone. A potential employer. A complete stranger. If I'd be embarrassed explaining why a sound is there, it doesn't belong here. Funny doesn't have to be harmful. The Quandale Dingle pack proves that.</p>
+                <p class="signature">— Uzair</p>
+            </div>
+        </div>
+    </dialog>
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>

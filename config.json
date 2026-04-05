@@ -1,0 +1,202 @@
+{
+  "packs": [
+    {
+      "id": "anime",
+      "name": "Anime",
+      "sounds": [
+        {
+          "id": "anime-ah",
+          "name": "Anime ah",
+          "path": "assets/sounds/anime/anime-ahh.mp3",
+          "duration": 0.862
+        },
+        {
+          "id": "anime-gasp",
+          "name": "Anime gasp",
+          "path": "assets/sounds/anime/anime-gasp.mp3",
+          "duration": 0.836
+        },
+        {
+          "id": "nani",
+          "name": "NANI",
+          "path": "assets/sounds/anime/nani.mp3",
+          "duration": 1.489
+        },
+        {
+          "id": "anime-sneeze",
+          "name": "Anime sneeze",
+          "path": "assets/sounds/anime/anime-sneeze.mp3",
+          "duration": 1.332
+        }
+      ]
+    },
+    {
+      "id": "classic",
+      "name": "Classic",
+      "sounds": [
+        {
+          "id": "vine-bomb",
+          "name": "Vine bomb",
+          "path": "assets/sounds/classic/vine-boom.mp3",
+          "duration": 1.306
+        },
+        {
+          "id": "bruh",
+          "name": "Bruh",
+          "path": "assets/sounds/classic/bruh.mp3",
+          "duration": 0.864
+        },
+        {
+          "id": "taco-bell",
+          "name": "Taco Bell bong",
+          "path": "assets/sounds/classic/taco-bell.mp3",
+          "duration": 1.959
+        },
+        {
+          "id": "windows-xp",
+          "name": "Windows XP error",
+          "path": "assets/sounds/classic/windows-xp.mp3",
+          "duration": 1.019
+        },
+        {
+          "id": "bababooey",
+          "name": "Bababooey",
+          "path": "assets/sounds/classic/bababooey.mp3",
+          "duration": 0.836
+        }
+      ]
+    },
+    {
+      "id": "brainrot",
+      "name": "Brainrot",
+      "sounds": [
+        {
+          "id": "quandale",
+          "name": "Quandale Dingle intro",
+          "path": "assets/sounds/brainrot/quandale.mp3",
+          "duration": 14.237
+        },
+        {
+          "id": "faaaaah",
+          "name": "FAAAAAH",
+          "path": "assets/sounds/brainrot/faaaaah.mp3",
+          "duration": 1.776
+        },
+        {
+          "id": "skibidi",
+          "name": "Skibidi Toilet",
+          "path": "assets/sounds/brainrot/skibidi.mp3",
+          "duration": 6.264
+        },
+        {
+          "id": "67",
+          "name": "67",
+          "path": "assets/sounds/brainrot/67.mp3",
+          "duration": 1.968
+        },
+        {
+          "id": "emotional-damage",
+          "name": "Emotional damage",
+          "path": "assets/sounds/brainrot/emotional-damage.mp3",
+          "duration": 2.638
+        },
+        {
+          "id": "nuh-uh",
+          "name": "NUH UH",
+          "path": "assets/sounds/brainrot/nuh-uh.mp3",
+          "duration": 1.045
+        }
+      ]
+    },
+    {
+      "id": "cursed",
+      "name": "Cursed",
+      "sounds": [
+        {
+          "id": "tuco",
+          "name": "Tuco: Get out",
+          "path": "assets/sounds/cursed/tuco.mp3",
+          "duration": 1.032
+        },
+        {
+          "id": "fbi",
+          "name": "FBI OPEN UP",
+          "path": "assets/sounds/cursed/fbi.mp3",
+          "duration": 2.038
+        },
+        {
+          "id": "gopher",
+          "name": "Gopher",
+          "path": "assets/sounds/cursed/gopher.mp3",
+          "duration": 2.612
+        },
+        {
+          "id": "john-cena",
+          "name": "John Cena entrance",
+          "path": "assets/sounds/cursed/john-cena.mp3",
+          "duration": 5.355
+        },
+        {
+          "id": "raahhh",
+          "name": "Raahhh",
+          "path": "assets/sounds/cursed/raahhh.mp3",
+          "duration": 1.959
+        },
+        {
+          "id": "goofy",
+          "name": "Goofy yell",
+          "path": "assets/sounds/cursed/goofy.mp3",
+          "duration": 2.472
+        },
+        {
+          "id": "yellow-car",
+          "name": "Yellow car",
+          "path": "assets/sounds/cursed/yellow-car.mp3",
+          "duration": 1.802
+        }
+      ]
+    },
+    {
+      "id": "jumpscare",
+      "name": "Jumpscare",
+      "sounds": [
+        {
+          "id": "jumpscare",
+          "name": "Jumpscare screen",
+          "path": "assets/sounds/jumpscare/jumpscare.mp3",
+          "duration": 5.303
+        },
+        {
+          "id": "thunder",
+          "name": "Thunder clap",
+          "path": "assets/sounds/jumpscare/thunder.mp3",
+          "duration": 7.158
+        }
+      ]
+    },
+    {
+      "id": "gamer",
+      "name": "Gamer",
+      "sounds": [
+        {
+          "id": "mlg",
+          "name": "MLG AIR HORN",
+          "path": "assets/sounds/gamer/mlg.mp3",
+          "duration": 3.004
+        },
+        {
+          "id": "minecraft-oof",
+          "name": "Minecraft oof",
+          "path": "assets/sounds/gamer/minecraft-oof.mp3",
+          "duration": 1.097
+        },
+        {
+          "id": "gta-wasted",
+          "name": "GTA V wasted",
+          "path": "assets/sounds/gamer/gta-wasted.mp3",
+          "duration": 7.784
+        }
+      ]
+    }
+  ]
+}
