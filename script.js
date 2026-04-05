@@ -261,43 +261,31 @@ UI.audioPlayer.addEventListener('pause', () => {
 window.addEventListener('beforeunload', stopListening);
 
 UI.btnAbout.addEventListener('click', () => {
-    UI.modalAbout.showModal();
+    UI.modalAbout.style.display = 'flex';
 });
 
 UI.btnCloseModal.addEventListener('click', () => {
-    UI.modalAbout.close();
+    UI.modalAbout.style.display = 'none';
 });
 
 UI.modalAbout.addEventListener('click', (e) => {
-    const dialogDimensions = UI.modalAbout.getBoundingClientRect();
-    if (
-        e.clientX < dialogDimensions.left ||
-        e.clientX > dialogDimensions.right ||
-        e.clientY < dialogDimensions.top ||
-        e.clientY > dialogDimensions.bottom
-    ) {
-        UI.modalAbout.close();
+    if (e.target === UI.modalAbout) {
+        UI.modalAbout.style.display = 'none';
     }
 });
 
 // Suggest Modal Events
 UI.btnSuggest.addEventListener('click', () => {
-    UI.modalSuggest.showModal();
+    UI.modalSuggest.style.display = 'flex';
 });
 
 UI.btnCloseSuggest.addEventListener('click', () => {
-    UI.modalSuggest.close();
+    UI.modalSuggest.style.display = 'none';
 });
 
 UI.modalSuggest.addEventListener('click', (e) => {
-    const dialogDimensions = UI.modalSuggest.getBoundingClientRect();
-    if (
-        e.clientX < dialogDimensions.left ||
-        e.clientX > dialogDimensions.right ||
-        e.clientY < dialogDimensions.top ||
-        e.clientY > dialogDimensions.bottom
-    ) {
-        UI.modalSuggest.close();
+    if (e.target === UI.modalSuggest) {
+        UI.modalSuggest.style.display = 'none';
     }
 });
 
