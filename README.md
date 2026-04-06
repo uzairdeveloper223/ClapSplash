@@ -1,6 +1,6 @@
 # ClapSplash
 
-<img src="favicon.svg" alt="ClapSplash Icon" width="64" height="64" />
+<img src="assets/favicons/favicon.svg" alt="ClapSplash Icon" width="64" height="64" />
 
 **Live Application:** [https://clapsplash.vercel.app/](https://clapsplash.vercel.app/)
 
