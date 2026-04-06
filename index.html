@@ -5,20 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClapSplash | Web Audio Clap Detection</title>
-    
-    <meta name="description" content="ClapSplash is an intelligent, privacy-first web application that uses the Web Audio API to detect hand claps in real-time and trigger hilarious sound effects.">
-    <meta name="keywords" content="Clap detection, Web Audio API, soundboard, funny sounds, browser audio, microphone, javascript tool">
+
+    <meta name="description"
+        content="ClapSplash is an intelligent, privacy-first web application that uses the Web Audio API to detect hand claps in real-time and trigger hilarious sound effects.">
+    <meta name="keywords"
+        content="Clap detection, Web Audio API, soundboard, funny sounds, browser audio, microphone, javascript tool">
     <meta name="author" content="Uzair Mughal">
-    
+
     <meta property="og:title" content="ClapSplash | Web Audio Clap Detection">
-    <meta property="og:description" content="A real-time, browser-native clap detection soundboard. Trigger hilarious custom sounds with just a clap of your hands.">
+    <meta property="og:description"
+        content="A real-time, browser-native clap detection soundboard. Trigger hilarious custom sounds with just a clap of your hands.">
     <meta property="og:type" content="website">
-    
+
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
-    
+
     <!-- Web3Forms hCaptcha Script -->
     <script src="https://web3forms.com/client/script.js" async defer></script>
+    <meta name="google-site-verification" content="2bX1ZY6OKSD-JpIWsWCbWE0BlSHhPTobjd0WnSmnJVI" />
 </head>
 
 <body>
@@ -99,58 +103,69 @@
             <button id="about-btn" class="footer-btn">A note from the developer</button>
             <button id="suggest-btn" class="footer-btn">Suggest a Sound</button>
         </div>
-        
+
         <audio id="audio-player" src="assets/sounds/anime/anime-ahh.mp3" preload="auto"></audio>
     </main>
 
     <div id="suggest-modal" class="modal-overlay" style="display: none;">
         <div class="modal">
-        <div class="modal-content">
-            <header class="modal-header">
-                <h2>Suggest a Sound</h2>
-                <button id="close-suggest-btn" aria-label="Close modal">×</button>
-            </header>
-            <div class="modal-body">
-                <p>Got a hilarious sound in mind? Drop the details below and I'll review it for the next pack update!</p>
-                <form id="suggest-form">
-                    <input type="hidden" name="access_key" value="b68ba00a-128a-4a38-a740-2fb64d2002f9">
-                    <input type="hidden" name="subject" value="New ClapSplash Suggestion!">
-                    
-                    <div class="form-group">
-                        <label for="sound-name">Sound Name</label>
-                        <input type="text" id="sound-name" name="Sound Name" required placeholder="e.g. Cartoon Slip">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="sound-url">Audio Link (MyInstants, YouTube, etc)</label>
-                        <input type="url" id="sound-url" name="Audio URL" required placeholder="https://...">
-                    </div>
-                    
-                    <div class="h-captcha" data-captcha="true"></div>
-                    
-                    <button type="submit" id="submit-suggest-btn" data-primary="true">Submit Request</button>
-                    <p id="form-result" class="form-result"></p>
-                </form>
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h2>Suggest a Sound</h2>
+                    <button id="close-suggest-btn" aria-label="Close modal">×</button>
+                </header>
+                <div class="modal-body">
+                    <p>Got a hilarious sound in mind? Drop the details below and I'll review it for the next pack
+                        update!</p>
+                    <form id="suggest-form">
+                        <input type="hidden" name="access_key" value="b68ba00a-128a-4a38-a740-2fb64d2002f9">
+                        <input type="hidden" name="subject" value="New ClapSplash Suggestion!">
+
+                        <div class="form-group">
+                            <label for="sound-name">Sound Name</label>
+                            <input type="text" id="sound-name" name="Sound Name" required
+                                placeholder="e.g. Cartoon Slip">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sound-url">Audio Link (MyInstants, YouTube, etc)</label>
+                            <input type="url" id="sound-url" name="Audio URL" required placeholder="https://...">
+                        </div>
+
+                        <div class="h-captcha" data-captcha="true"></div>
+
+                        <button type="submit" id="submit-suggest-btn" data-primary="true">Submit Request</button>
+                        <p id="form-result" class="form-result"></p>
+                    </form>
+                </div>
             </div>
-        </div>
         </div>
     </div>
 
     <div id="about-modal" class="modal-overlay" style="display: none;">
         <div class="modal">
-        <div class="modal-content">
-            <header class="modal-header">
-                <h2>Why Some Sounds Didn't Make It</h2>
-                <button id="close-modal-btn" aria-label="Close modal">×</button>
-            </header>
-            <div class="modal-body">
-                <p>When I started ClapSplash, the idea was simple — clap your hands, get a funny reaction. But as the sound pack grew, I had to make some real decisions about what stays and what goes.</p>
-                <p>Some sounds got rejected not because they aren't funny to some people, but because this is a public website. Anyone can open it. Your little sibling. Someone's kid. Someone going through something difficult. A sound that's hilarious in one context can genuinely make someone uncomfortable in another.</p>
-                <p>Sexual sounds or suggestive audio — even as "jokes" — have no place on a platform where I have zero control over who's listening. It's not about being boring. It's about basic respect for everyone who lands on this page. Hate speech, slurs, and politically charged content are permanently excluded. A clap shouldn't accidentally ruin someone's day.</p>
-                <p>I want ClapSplash to be something I'm genuinely proud to show — to anyone. A potential employer. A complete stranger. If I'd be embarrassed explaining why a sound is there, it doesn't belong here. Funny doesn't have to be harmful. The Quandale Dingle pack proves that.</p>
-                <p class="signature">— Uzair</p>
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h2>Why Some Sounds Didn't Make It</h2>
+                    <button id="close-modal-btn" aria-label="Close modal">×</button>
+                </header>
+                <div class="modal-body">
+                    <p>When I started ClapSplash, the idea was simple — clap your hands, get a funny reaction. But as
+                        the sound pack grew, I had to make some real decisions about what stays and what goes.</p>
+                    <p>Some sounds got rejected not because they aren't funny to some people, but because this is a
+                        public website. Anyone can open it. Your little sibling. Someone's kid. Someone going through
+                        something difficult. A sound that's hilarious in one context can genuinely make someone
+                        uncomfortable in another.</p>
+                    <p>Sexual sounds or suggestive audio — even as "jokes" — have no place on a platform where I have
+                        zero control over who's listening. It's not about being boring. It's about basic respect for
+                        everyone who lands on this page. Hate speech, slurs, and politically charged content are
+                        permanently excluded. A clap shouldn't accidentally ruin someone's day.</p>
+                    <p>I want ClapSplash to be something I'm genuinely proud to show — to anyone. A potential employer.
+                        A complete stranger. If I'd be embarrassed explaining why a sound is there, it doesn't belong
+                        here. Funny doesn't have to be harmful. The Quandale Dingle pack proves that.</p>
+                    <p class="signature">— Uzair</p>
+                </div>
             </div>
-        </div>
         </div>
     </div>
     <script src="script.js" type="module"></script>
